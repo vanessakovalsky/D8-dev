@@ -1,0 +1,9 @@
+demo_formation.index:
+  path: '/test-index'
+  defaults:
+    _controller:
+      'Drupal\demo_formation\Controller\DemoPageController::indexDemo'
+    _title:
+      'Page de démo du service'
+  requirements:
+    _access: 'TRUE'

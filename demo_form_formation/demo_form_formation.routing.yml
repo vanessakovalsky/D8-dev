@@ -1,0 +1,7 @@
+demo_form_formation.form_contact:
+  path: '/custom-contact'
+  defaults:
+    _form: '\Drupal\demo_form_formation\Form\CustomContactForm'
+    _title: 'Formulaire de contact custom'
+  requirements:
+    _access: 'TRUE'

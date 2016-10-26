@@ -1,0 +1,4 @@
+name: DemoFormation
+core: 8.x
+type: module
+description: Module de démo en formation Drupal 8

@@ -1,0 +1,4 @@
+name: DemoFormFormation
+core: 8.x
+type: module
+description: Formulaire de contact avec envoi de mail et enregistrement de log

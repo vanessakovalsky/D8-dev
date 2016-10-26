@@ -1,0 +1,3 @@
+services:
+  mon_super_service_demo:
+    class: Drupal\demo_formation\Controller\DemoFormationController
