@@ -3,19 +3,18 @@
 namespace Drupal\demo_formation\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\demo_formation\Event\DemoFormationEvent;
 
 class DemoPageController extends ControllerBase{
+  private $dispatcher = NULL;
 
   public function __construct(){
-    return $this;
+    $this->dispatcher = \Drupal::service('event_dispatcher');;
   }
 
   public function indexDemo(){
-     $database = \Drupal::service('mon_super_service_demo');
-     $db_object = $database->getDatabase();
-     var_dump($db_object);
-     die();
-    return array('#markup' => 'hello world'.$db_object->getConnection());
+    $this->dispatcher->dispatch('my_event.view', new DemoFormationEvent());
+    return array('#markup' => 'hello world');
   }
 
 }

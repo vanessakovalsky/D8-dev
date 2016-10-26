@@ -1,3 +1,5 @@
-#services:
-#  mon_super_service_demo:
-#    class: Drupal\demo_formation\Controller\DemoFormationController
+services:
+  my_event.view:
+    class: Drupal\demo_formation\EventSubscriber\DemoFormationSubscriber
+    tags:
+      - { name: 'event_subscriber' }
