@@ -9,7 +9,7 @@ class DemoPageController extends ControllerBase{
   private $dispatcher = NULL;
 
   public function __construct(){
-    $this->dispatcher = \Drupal::service('event_dispatcher');;
+    $this->dispatcher = \Drupal::service('event_dispatcher');
   }
 
   public function indexDemo(){

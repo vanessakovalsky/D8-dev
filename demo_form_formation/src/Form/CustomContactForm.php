@@ -3,6 +3,7 @@
 namespace Drupal\demo_form_formation\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\demo_form_formation\Event\DemoSubmitEvent;
 
 class CustomContactForm extends FormBase
 {
@@ -39,6 +40,10 @@ class CustomContactForm extends FormBase
     $content = $form_state->getValue('message');
 
     \Drupal::service('mon_super_service_demo')->sendMailAndLog($expediteur, $destinataire, $module, $subject, $content);
+    $event_submit = new DemoSubmitEvent();
+    $event_submit->setSubject($subject);
 
+    $dispatcher = \Drupal::service('event_dispatcher');
+    $dispatcher->dispatch('submit_set_message', $event_submit);
   }
 }
