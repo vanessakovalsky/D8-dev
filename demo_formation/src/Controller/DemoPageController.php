@@ -13,6 +13,8 @@ class DemoPageController extends ControllerBase{
   }
 
   public function indexDemo(){
+    $entity_config = \Drupal::config('demo_formation_config_entity');
+    die(var_dump($entity_config));
     $this->dispatcher->dispatch('my_event.view', new DemoFormationEvent());
     return array('#markup' => 'hello world');
   }

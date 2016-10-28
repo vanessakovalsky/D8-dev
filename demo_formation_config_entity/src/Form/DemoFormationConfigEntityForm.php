@@ -6,6 +6,8 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Entity\Query\QueryFactory;
 
 /**
  * Class DemoFormationConfigEntityForm
@@ -13,6 +15,23 @@ use Drupal\Core\Form\FormStateInterface;
  * Form class for adding/editing demo_formation_config_entity config entities.
  */
 class DemoFormationConfigEntityForm extends EntityForm {
+
+  /**
+   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
+   *   The entity query.
+   */
+  public function __construct(QueryFactory $entity_query) {
+    $this->entityQuery = $entity_query;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity.query')
+    );
+  }
 
    /**
    * {@inheritdoc}

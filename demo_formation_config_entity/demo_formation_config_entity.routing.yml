@@ -13,14 +13,14 @@ entity.demo_formation_config_entity.add_form:
   requirements:
     _permission: 'administer site configuration'
 entity.demo_formation_config_entity.edit_form:
-  path: '/admin/config/system/demo_formation_config_entity/{config_entity}'
+  path: '/admin/config/system/demo_formation_config_entity/{demo_formation_config_entity}'
   defaults:
     _entity_form: 'demo_formation_config_entity.edit'
     _title: 'Edit demo_formation_config_entity'
   requirements:
     _permission: 'administer site configuration'
 entity.demo_formation_config_entity.delete_form:
-  path: '/admin/config/system/demo_formation_config_entity/{config_entity}/delete'
+  path: '/admin/config/system/demo_formation_config_entity/{demo_formation_config_entity}/delete'
   defaults:
     _entity_form: 'demo_formation_config_entity.delete'
     _title: 'Delete demo_formation_config_entity'

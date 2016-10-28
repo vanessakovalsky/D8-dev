@@ -25,6 +25,10 @@ use Drupal\demo_formation_config_entity;
     *     "id" = "id",
     *     "label" = "name"
     *   },
+    *   links = {
+    *     "edit-form" = "/admin/config/system/demo_formation_config_entity/{demo_formation_config_entity}",
+    *     "delete-form" = "/admin/config/system/demo_formation_config_entity/{demo_formation_config_entity}/delete"
+    *   }
     * )
     */
 
