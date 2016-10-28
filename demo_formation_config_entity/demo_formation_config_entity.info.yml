@@ -1,0 +1,4 @@
+name: Demo Formation Config Entity
+core: 8.x
+type: module
+description: Entité de configuration pour la connexion vers l'API de google analytics
