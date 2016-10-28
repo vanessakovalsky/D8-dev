@@ -25,7 +25,7 @@ class DemoFormationConfigEntityListBuilder extends ConfigEntityListBuilder {
     // Label
     $row['label'] = $this->getLabel($entity);
 
-    // Color
+    // Key
     $row['key'] = $entity->key;
 
     return $row + parent::buildRow($entity);

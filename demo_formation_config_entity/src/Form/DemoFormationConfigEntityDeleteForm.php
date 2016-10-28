@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\demo_formation_config_entity\Form\FlowerDeleteForm.
+ * Contains \Drupal\demo_formation_config_entity\Form\DemoFormationConfigEntityDeleteForm.
  */
 namespace Drupal\demo_formation_config_entity\Form;
 
@@ -9,21 +9,21 @@ use Drupal\Core\Entity\EntityConfirmFormBase;
 use Drupal\Core\Url;
 
 /**
- * Form that handles the removal of flower entities.
+ * Form that handles the removal of demo_formation_config_entity entities.
  */
-class FlowerDeleteForm extends EntityConfirmFormBase {
+class DemoFormationConfigEntityDeleteForm extends EntityConfirmFormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return $this->t('Are you sure you want to delete this flower: @name?', array('@name' => $this->entity->name));
+    return $this->t('Are you sure you want to delete this demo_formation_config_entity: @label?', array('@label' => $this->entity->label));
   }
   /**
    * {@inheritdoc}
    */
   public function getCancelRoute() {
-    return new Url('flower.list');
+    return new Url('demo_formation_config_entity.list');
   }
   /**
    * {@inheritdoc}
@@ -38,7 +38,7 @@ class FlowerDeleteForm extends EntityConfirmFormBase {
 
     // Delete and set message
     $this->entity->delete();
-    drupal_set_message($this->t('The flower @label has been deleted.', array('@label' => $this->entity->name)));
+    drupal_set_message($this->t('The demo_formation_config_entity @label has been deleted.', array('@label' => $this->entity->name)));
     $form_state['redirect_route'] = $this->getCancelRoute();
 
   }
