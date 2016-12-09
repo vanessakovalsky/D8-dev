@@ -10,13 +10,34 @@ function demoformation_theme($existing, $type, $theme, $path){
   );
 }
 
-function demoformation_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account){
+function demoformation_node_access(\Drupal\node\NodeInterface $node, $operation, \Drupal\Core\Session\AccountInterface $account){
   if($node->bundle() == 'article'){
-    switch($op){
+    switch($operation){
+      case 'view':
+        return
+        AccessResult::allowedIfHasPermission($account, 'administer api url');
       case 'create':
-        return AccessResult::allowedIfHasPermission($account, 'administer api url');
+        if($account->hasPermission('administer api url', $account)){
+            return AccessResult::allowed()->cachePerPermissions();
+        }
+        else {
+          return AccessResult::forbidden()->cachePerPermissions();
+        }
       default:
         return AccessResult::neutral();
     }
+  }
+}
+
+function demoformation_form_alter(&$form, &$form_state ){
+  if ($form['#form_id'] == 'node_article_form' || 'node_article_edit_form'){
+    $form['title']['widget']['#description'] = t('Le titre de votre contenu');
+    $form['#validate'][] = 'my_custom_validate';
+  }
+}
+
+function my_custom_validate($form, $form_state){
+  if ($form_state->getValue('title') != 'Titre'){
+    $form_state->setErrorByName('title', t('Le titre n\'est pas valide'));
   }
 }
