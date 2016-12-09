@@ -1,0 +1,5 @@
+name: Breaking DB
+type: module
+description: Breaking database use entity query and other tools
+core: 8.x
+package: Custom

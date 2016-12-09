@@ -1,0 +1,14 @@
+{
+  "name": "drupal/formationnl",
+  "type": "drupal-module",
+  "description": "Manipulation d'entités",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/formationnl",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/formationnl",
+    "source": "http://cgit.drupalcode.org/formationnl"
+  },
+  "require": { }
+}

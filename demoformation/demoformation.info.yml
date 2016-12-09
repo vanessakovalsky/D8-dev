@@ -1,0 +1,5 @@
+name: DemoFormation
+type: module
+description: DemoFormation : premier module
+core: 8.x
+package: DemoFormation

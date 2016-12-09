@@ -1,0 +1,5 @@
+name: FormationNL
+type: module
+description: Manipulation d'entités
+core: 8.x
+package: Custom

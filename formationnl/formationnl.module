@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains formationnl.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function formationnl_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the formationnl module.
+    case 'help.page.formationnl':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Manipulation d&#039;entités') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function formationnl_modules_installed($modules){
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'formationNL';
+  $key = 'send_mail_enable_module';
+  $to = 'president@gouv.fr';
+  $params['title'] = t('Des modules ont été activés sur votre site Drupal');
+  $params['message'] = t('Mon contenu de message');
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $result_send_mail = $mailManager->mail($module, $key, $to,$langcode,  $params, NULL, true);
+  if($result_send_mail['result'] !== true) {
+    drupal_set_message(t('Mail non envoyé'),'error');
+  }
+  else {
+    drupal_set_message(t('Mail envoyé'));
+  }
+
+}

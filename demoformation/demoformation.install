@@ -1,0 +1,20 @@
+<?php
+
+function demoformation_install(){
+  $EntityManager = \Drupal::service('entity_type.manager')->getStorage('block');
+  $block =   $EntityManager->create(array(
+    'id' => 'formation_5140',
+    'plugin' => 'block_content',
+    'region' => 'content',
+    'provider' => 'block_content',
+    'theme' => 'bartik'
+  ));
+  $block->save();
+}
+
+function demoformation_update_8006(){
+  //$entityManager = \Drupal::service('entity_type.manager')->getStorage('block_content');
+  $block_load = \Drupal\block_content\Entity\BlockContent::load('formation_5140');
+  $block_load->info = t('Block formation 5140');
+  $block_load->save();
+}

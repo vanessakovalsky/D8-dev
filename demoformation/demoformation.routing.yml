@@ -1,0 +1,38 @@
+
+# In order to to create pages it is necessary to define routes for them.
+# A route maps a URL path to a controller. It defines what function
+# or method will be called when a URL is accessed.
+# If the user accesses http://drupal8.dev//christmas/welcome/{user}, the routing
+# system will look for a route with that path. In this case it will find a
+# match, and execute the _controller callback. In this case the callback is
+# defined as a classname
+# ("\Drupal\demoformation\Controller\ChristmasController")
+# and a method ("chanteViveLeVent").
+demoformation.christmas_controller_chanteViveLeVent:
+  path: '/christmas/welcome/{user}'
+  defaults:
+    _controller: '\Drupal\demoformation\Controller\ChristmasController::chanteViveLeVent'
+    _title: 'viveLeVent'
+  requirements:
+    _permission: 'access content'
+demoformation.christmas_danseMonBeauSapin:
+  path: /christmas/welcome/{user}/sapin
+  defaults:
+    _controller: '\Drupal\demoformation\Controller\ChristmasController::danseMonBeauSapin'
+    _title: 'ça sent le sapin'
+  requirements:
+      _permission: 'access content'
+demoformation.christmas_singFivory:
+  path: /christmas/singFivory
+  defaults:
+    _controller: '\Drupal\demoformation\Controller\ChristmasController::singFivory'
+    _title: 'Appel API Fivory'
+  requirements:
+    _permission: 'access content'
+demoformation.blocksettings_form:
+  path: '/admin/config/demoformation_block_settings'
+  defaults:
+    _form: '\Drupal\demoformation\Form\BlockSettingsForm'
+    _title: 'Formulaire de configuration du block'
+  requirements:
+    _permission: 'administer site configuration'

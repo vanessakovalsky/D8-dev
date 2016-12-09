@@ -1,0 +1,24 @@
+
+# In order to to create pages it is necessary to define routes for them.
+# A route maps a URL path to a controller. It defines what function
+# or method will be called when a URL is accessed.
+# If the user accesses http://drupal8.dev//breaking/nodelist, the routing
+# system will look for a route with that path. In this case it will find a
+# match, and execute the _controller callback. In this case the callback is
+# defined as a classname
+# ("\Drupal\breaking_db\Controller\BreakingController")
+# and a method ("ShowNodeList").
+breaking_db.breaking_controller_ShowNodeList:
+  path: '/breaking/nodelist'
+  defaults:
+    _controller: '\Drupal\breaking_db\Controller\BreakingController::ShowNodeList'
+    _title: 'ShowNodeList'
+  requirements:
+    _permission: 'access content'
+breaking_db.breaking_controller_ShowOtherContent:
+  path: '/breaking/otherlist'
+  defaults:
+    _controller: '\Drupal\breaking_db\Controller\BreakingController::ShowOtherContent'
+    _title: 'Other content list'
+  requirements:
+    _permission: 'access content'

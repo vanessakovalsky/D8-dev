@@ -1,0 +1,8 @@
+formation_vent_tab:
+  route_name: demoformation.christmas_controller_chanteViveLeVent
+  title: 'Vive le Vent'
+  base_route: demoformation.christmas_controller_chanteViveLeVent
+formation_sapin_tab:
+  route_name: demoformation.christmas_danseMonBeauSapin
+  title: 'Sapin'
+  base_route: demoformation.christmas_controller_chanteViveLeVent
