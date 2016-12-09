@@ -35,4 +35,4 @@ demoformation.blocksettings_form:
     _form: '\Drupal\demoformation\Form\BlockSettingsForm'
     _title: 'Formulaire de configuration du block'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer api url+access content'

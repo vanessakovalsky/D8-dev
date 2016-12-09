@@ -1,4 +1,5 @@
 <?php
+use Drupal\Core\Access\AccessResult;
 
 function demoformation_theme($existing, $type, $theme, $path){
   return array(
@@ -7,4 +8,15 @@ function demoformation_theme($existing, $type, $theme, $path){
       ' => array())
     )
   );
+}
+
+function demoformation_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account){
+  if($node->bundle() == 'article'){
+    switch($op){
+      case 'create':
+        return AccessResult::allowedIfHasPermission($account, 'administer api url');
+      default:
+        return AccessResult::neutral();
+    }
+  }
 }

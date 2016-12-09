@@ -33,8 +33,10 @@ class ChristmasController extends ControllerBase {
   }
 
   public function singFivory(){
+    $config = \Drupal::service('config.factory')->get('demoformation.blocksettings');
+    $url_api = $config->get('url');
     $client = \Drupal::service('http_client');
-    $result = $client->get('https://api.fivory.com/api/v3/brands?limit=20', ['Accept' => 'application/json']);
+    $result = $client->get($url_api.'/api/v3/brands?limit=20', ['Accept' => 'application/json']);
     $result_decode = \Drupal\Component\Serialization\Json::decode($result->getBody()->getContents());
     foreach($result_decode['brands'] as $brand){
       $node_brand = \Drupal\node\Entity\Node::create([

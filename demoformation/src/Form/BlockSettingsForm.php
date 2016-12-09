@@ -39,7 +39,6 @@ class BlockSettingsForm extends ConfigFormBase {
     $config->set('title', $form_state->getValue('title'))
           ->set('url', $form_state->getValue('url'))
       ->save();
-
     parent::submitForm($form, $form_state);
   }
 
