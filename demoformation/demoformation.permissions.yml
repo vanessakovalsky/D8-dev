@@ -1,0 +1,4 @@
+administer api url:
+  title : Access settings form of formation
+  description: Access to the setting's form of API url
+  restrict access: TRUE
