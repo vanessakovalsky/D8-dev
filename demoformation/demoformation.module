@@ -30,13 +30,14 @@ function demoformation_node_access(\Drupal\node\NodeInterface $node, $operation,
 }
 
 function demoformation_form_alter(&$form, &$form_state ){
-  if ($form['#form_id'] == 'node_article_form' || 'node_article_edit_form'){
+  if (($form['#form_id'] == 'node_article_form') || ($form['#form_id'] == 'node_article_edit_form')){
+    die(var_dump('fklfls'));
     $form['title']['widget']['#description'] = t('Le titre de votre contenu');
-    $form['#validate'][] = 'my_custom_validate';
+    $form['#validate'][] = 'my_custom_gdshdsfh';
   }
 }
 
-function my_custom_validate($form, $form_state){
+function my_custom_gdshdsfh($form, $form_state){
   if ($form_state->getValue('title') != 'Titre'){
     $form_state->setErrorByName('title', t('Le titre n\'est pas valide'));
   }
