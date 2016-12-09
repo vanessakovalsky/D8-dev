@@ -1,0 +1,5 @@
+services:
+  my_event.view:
+    class: Drupal\demo_formation\EventSubscriber\DemoFormationSubscriber
+    tags:
+      - { name: 'event_subscriber' }

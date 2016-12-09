@@ -1,0 +1,5 @@
+services:
+  demo-form-formation.subscriber:
+    class: Drupal\demo_form_formation\EventSubscriber\DemoFormFormationEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }

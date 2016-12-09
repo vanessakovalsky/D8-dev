@@ -1,0 +1,18 @@
+# Schema for the configuration files of the DemoFormationConfigEntity module.
+demo_formation_config_entity.demo_formation_config_entity.*:
+  type: config_entity
+  label: 'DemoFormationConfigEntity'
+  mapping:
+    id:
+      type: string
+      label: 'DemoFormationConfigEntity identifier'
+    uuid:
+      type: string
+      label: 'UUID'
+    label:
+      type: label
+      label: 'Name'
+    key:
+      type: string
+      label: 'API Key'
+      translatable: true

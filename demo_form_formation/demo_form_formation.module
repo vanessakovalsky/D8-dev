@@ -1,0 +1,10 @@
+<?php
+
+function demo_form_formation_theme(){
+  $themes['custom_form_block'] =[
+    'variables' => [
+      'custom_form' => 'form',
+    ]
+  ];
+  return $themes;
+}
