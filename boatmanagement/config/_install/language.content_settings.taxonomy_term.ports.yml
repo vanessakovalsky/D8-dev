@@ -1,0 +1,10 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ports
+id: taxonomy_term.ports
+target_entity_type_id: taxonomy_term
+target_bundle: ports
+default_langcode: site_default
+language_alterable: false

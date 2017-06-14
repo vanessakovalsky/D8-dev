@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Contains boatmanagement.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function boatmanagement_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the boatmanagement module.
+    case 'help.page.boatmanagement':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Boat management') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function boatmanagement_theme() {
+  return [
+    'boatmanagement' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+function boatmanagement_form_alter(&$form, &$form_state, $form_id){
+  if($form_id == 'node_bateau_form'){
+    $form['#submit'][] = 'bateau_edit_send_email';
+  }
+}
+
+function bateau_edit_send_email(&$form, &$form_state){
+  $mailer = \Drupal::service('plugin.manager.mail');
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $site_name = \Drupal::config('system.site')->get('name');
+  $current_user = \Drupal::currentUser();
+  $expediteur = $current_user->getEmail();
+  $subject = t('Modification de votre fiche bateau');
+  $content = t('Votre fiche de bateau a été modifiée');
+  $params = array(
+    'message' => $content,
+    'subject' => $site_name.$subject,
+  );
+
+  $node = Node::load($form_state->getValue('nid'));
+
+  /** @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem $referenceItem */
+  $referenceItem = $node->get('field_proprietaire')->first();
+
+  /** @var \Drupal\Core\Entity\Plugin\DataType\EntityReference $entityReference */
+  $entityReference = $referenceItem->get('entity');
+
+  /** @var \Drupal\Core\Entity\Plugin\DataType\EntityAdapter $entityAdapter */
+  $entityAdapter = $entityReference->getTarget();
+
+  /** @var \Drupal\Core\Entity\EntityInterface $referencedEntity */
+  $proprietaire = $entityAdapter->getValue();
+
+  $destinataire = $proprietaire->getEmail();
+
+  $mailer->mail('boatmanagement', 'bateau_edit_send_email', $destinataire, $langcode, $params, $expediteur, $send=NULL );
+}

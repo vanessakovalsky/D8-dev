@@ -1,0 +1,14 @@
+{
+  "name": "drupal/boatmanagement",
+  "type": "drupal-module",
+  "description": "Boat management",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/boatmanagement",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/boatmanagement",
+    "source": "http://cgit.drupalcode.org/boatmanagement"
+  },
+  "require": { }
+}

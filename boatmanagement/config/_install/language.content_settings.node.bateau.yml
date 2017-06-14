@@ -1,0 +1,10 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.bateau
+id: node.bateau
+target_entity_type_id: node
+target_bundle: bateau
+default_langcode: site_default
+language_alterable: false
