@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\contrats\Entity\ContratEntity;
+use Drupal\block_content\Entity\BlockContent;
+
 
 function contrats_install() {
   $contrat = ContratEntity::create([
@@ -22,4 +24,27 @@ function contrats_update_8001(){
   $config = $config_factory->getEditable('field.field.contrat_entity.contrat_entity.field_date_de_debut');
   $config->set('default_value',[['default_date_type' => 'now'],['default_date' => 'now']]);
   $config->save(TRUE);
+}
+
+function contrats_update_8007(){
+
+  $block_content = BlockContent::create([
+    'type' => 'basic',
+    'info' => 'Demo Block 7',
+  ]);
+  $block_content->set('body', 'This is demo block for drupal 8');
+  $block_content->save();
+  $blockEntityManager = \Drupal::service('entity.manager')->getStorage('block');
+  $block = $blockEntityManager->create([
+    'id' => 'contrat_block7',
+    'plugin' => 'block_content:' . $block_content->uuid(),
+    'region' => 'content',
+    'provider' => 'block_content',
+    'theme' => 'bartik',
+    'settings' => [
+      'label' => 'Demo Block 7',
+      'label_display' => 'visible',
+    ],
+  ]);
+  $block->save();
 }
