@@ -1,0 +1,5 @@
+name: Contrats
+type: module
+description: Gestion des contrats
+core: 8.x
+package: Formation

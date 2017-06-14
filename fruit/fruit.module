@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains fruit.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function fruit_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the fruit module.
+    case 'help.page.fruit':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Demo console drupal') . '</p>';
+      return $output;
+
+    default:
+  }
+}

@@ -1,0 +1,19 @@
+langcode: fr
+status: true
+dependencies:
+  module:
+    - contrats
+    - datetime
+id: contrat_entity.field_date_de_debut
+field_name: field_date_de_debut
+entity_type: contrat_entity
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

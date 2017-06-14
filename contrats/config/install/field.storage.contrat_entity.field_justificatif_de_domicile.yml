@@ -1,0 +1,22 @@
+langcode: fr
+status: true
+dependencies:
+  module:
+    - contrats
+    - file
+id: contrat_entity.field_justificatif_de_domicile
+field_name: field_justificatif_de_domicile
+entity_type: contrat_entity
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+# Contrat entity routing definition
+contrat_entity.settings_tab:
+  route_name: contrat_entity.settings
+  title: 'Settings'
+  base_route: contrat_entity.settings
+
+entity.contrat_entity.canonical:
+  route_name: entity.contrat_entity.canonical
+  base_route: entity.contrat_entity.canonical
+  title: 'View'
+
+entity.contrat_entity.edit_form:
+  route_name: entity.contrat_entity.edit_form
+  base_route: entity.contrat_entity.canonical
+  title: 'Edit'
+
+entity.contrat_entity.version_history:
+  route_name: entity.contrat_entity.version_history
+  base_route: entity.contrat_entity.canonical
+  title: 'Revisions'
+
+entity.contrat_entity.delete_form:
+  route_name:  entity.contrat_entity.delete_form
+  base_route:  entity.contrat_entity.canonical
+  title: Delete
+  weight: 10
+

@@ -1,0 +1,23 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.contrat_entity.field_date_de_debut
+  module:
+    - contrats
+    - datetime
+id: contrat_entity.contrat_entity.field_date_de_debut
+field_name: field_date_de_debut
+entity_type: contrat_entity
+bundle: contrat_entity
+label: 'Date de début'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

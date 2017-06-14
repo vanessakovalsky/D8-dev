@@ -1,0 +1,7 @@
+contrat.calculator.form:
+  path: '/contrat/calculator'
+  defaults:
+    _title: 'Calculer quelque chose'
+    _form: '\Drupal\contrats\Form\CalculatorForm'
+  requirements:
+    _permission: 'access calculator form'

@@ -1,0 +1,26 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.contrat_entity.field_justificatif_de_domicile
+  module:
+    - contrats
+    - file
+id: contrat_entity.contrat_entity.field_justificatif_de_domicile
+field_name: field_justificatif_de_domicile
+entity_type: contrat_entity
+bundle: contrat_entity
+label: 'Justificatif de domicile'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

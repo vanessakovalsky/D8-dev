@@ -1,0 +1,5 @@
+name: fruit
+type: module
+description: Demo console drupal
+core: 8.x
+package: Custom

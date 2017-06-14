@@ -1,0 +1,15 @@
+fruit.page:
+  path: '/fruit/orange'
+  defaults:
+    _controller: '\Drupal\fruit\Controller\FruitController::orangepressee'
+    _title: 'Orange'
+  requirements:
+    _access: 'TRUE'
+
+fruit.fruit_controller_hello:
+  path: '/fruit/orange/fraise'
+  defaults:
+    _controller: '\Drupal\fruit\Controller\FruitController::fraisetagada'
+    _title: 'Fraise Tagada'
+  requirements:
+    _permission: 'access content'

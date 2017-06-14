@@ -1,0 +1,25 @@
+<?php
+
+use Drupal\contrats\Entity\ContratEntity;
+
+function contrats_install() {
+  $contrat = ContratEntity::create([
+    'uid' => 1,
+    'revision' => 0,
+    'status' => TRUE,
+    'promote' => 0,
+    'created' => time(),
+    'langcode' => 'fr',
+    'title' => 'Contrat 1',
+    'name' => 'Name 1'
+  ]);
+
+  $contrat->save();
+}
+
+function contrats_update_8001(){
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('field.field.contrat_entity.contrat_entity.field_date_de_debut');
+  $config->set('default_value',[['default_date_type' => 'now'],['default_date' => 'now']]);
+  $config->save(TRUE);
+}

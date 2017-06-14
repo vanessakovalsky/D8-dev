@@ -1,0 +1,37 @@
+add contrat entity entities:
+  title: 'Create new Contrat entity entities'
+
+administer contrat entity entities:
+  title: 'Administer Contrat entity entities'
+  description: 'Allow to access the administration form to configure Contrat entity entities.'
+  restrict access: true
+
+delete contrat entity entities:
+  title: 'Delete Contrat entity entities'
+
+edit contrat entity entities:
+  title: 'Edit Contrat entity entities'
+
+access contrat entity overview:
+  title: 'Access the Contrat entity overview page'
+
+view published contrat entity entities:
+  title: 'View published Contrat entity entities'
+
+view unpublished contrat entity entities:
+  title: 'View unpublished Contrat entity entities'
+
+view all contrat entity revisions:
+  title: 'View all Contrat entity revisions'
+
+revert all contrat entity revisions:
+  title: 'Revert all Contrat entity revisions'
+  description: 'Role requires permission <em>view Contrat entity revisions</em> and <em>edit rights</em> for contrat entity entities in question or <em>administer contrat entity entities</em>.'
+
+delete all contrat entity revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Contrat entity revisions</em> and <em>delete rights</em> for contrat entity entities in question or <em>administer contrat entity entities</em>.'
+
+access calculator form:
+  title: 'Acces au formulaire de calcul'
+  description: 'Donner l acces au formulaire de calcul des contrats'

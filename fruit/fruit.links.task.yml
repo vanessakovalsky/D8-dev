@@ -1,0 +1,8 @@
+fruit_tab:
+  route_name: fruit.page
+  title: 'Orange'
+  base_route: fruit.page
+fruit_fraise_tab:
+  route_name: fruit.fruit_controller_hello
+  title: 'Fraise'
+  base_route: fruit.page

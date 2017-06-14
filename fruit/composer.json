@@ -1,0 +1,14 @@
+{
+  "name": "drupal/fruit",
+  "type": "drupal-module",
+  "description": "Demo console drupal",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/fruit",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/fruit",
+    "source": "http://cgit.drupalcode.org/fruit"
+  },
+  "require": { }
+}

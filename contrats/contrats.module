@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains contrats.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function contrats_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the contrats module.
+    case 'help.page.contrats':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Gestion des contrats') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function contrats_theme() {
+  return [
+    'contrats' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+function contrats_form_alter(&$form, &$form_state, $form_id){
+  if($form_id == 'node_article_form'){
+    $form['#validate'][] = 'contrat_article_title_validate';
+  }
+}
+
+function contrat_article_title_validate(&$form, &$form_state){
+  if(strpos($form_state->getValue('title')[0]['value'], 'Drupal') !== FALSE) {
+    $form_state->setErrorByName('title', t('Le titre ne doit pas contenir le mot Drupal'));
+  }
+}
