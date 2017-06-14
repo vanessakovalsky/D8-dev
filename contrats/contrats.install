@@ -3,7 +3,6 @@
 use Drupal\contrats\Entity\ContratEntity;
 use Drupal\block_content\Entity\BlockContent;
 
-
 function contrats_install() {
   $contrat = ContratEntity::create([
     'uid' => 1,
