@@ -1,0 +1,51 @@
+TP - Drupal 8 Dev
+
+Etape 1 : Déclaration d'un module et gestion de la configuration
+- Créer une taxomie Port d'attachement avec les champs :
+-- Nom du port (text)
+-- Ville (code postal + nom de la ville)
+-- Pays (liste de Pays)
+- Créer un type de contenu dans l'UI appeler Boat
+- Ajouter les champs suivants :
+-- Nom du bateau (text)
+-- Longueur du bateau (number)
+-- Largeur du bateau (number)
+-- Hauteur (number)
+-- Prix (number)
+-- Photos (images)
+-- Port d'attachement (taxonomie libre)
+-- Propriétaire (utilisateur)
+- Ajouter aux utilisateurs un champ Nom et un champ prenom (les deux sont des textes)
+- Exporter la configuration de ce type de contenu + de la taxonomie + les champs utilisateurs(l'ensemble des fichiers + les champs)
+- Créer un module appeler BoatManagement (vous pouvez utilisez la commande drupal generate:module)
+- Mettre dans le module dans un dossier config/install l'ensemble des fichiers de configurations
+/!\ Prendre soin d'enlever dans les fichiers YAML les uuid présents générés par l'UI
+
+Etape 2 : Création d'un bloc et travail avec les BDD
+- Créer un bloc custom qui ne s'affichera que sur les contenus de type Bateau
+- Celui-ci contiendra le calcul de l'aire du bateau (en prenant l'hypothèse que le bateau est 
+rectangulaire, donc le calcul est largeur * longueur)
+- Créer un formulaire permettant de faire un calcul d'aire et l'afficher dans un bloc qui apparait sur toutes les cases
+- Lors du calcul de l'aire sur une fiche bateau, ajouter la valeur de l'aire dans le contenu
+stocké en base de donnée
+- Stocker également ce résultat dans la table (non drupal) d'une deuxième base de données
+
+Etape 3 : création d'un formulaire d'import
+- Créer un formulaire d’import de fichier CSV
+- Créer la route pour ce formulaire
+- Ajouter les contenus bateau à partir du fichier
+
+Etape 4 : Envoi d’email à partir des données de l'entité
+- Envoyer un email au propriétaire d’un bateau en cas de modification de sa fiche 
+(utilisation du hook form_alter et de l'API des entités)
+
+Etape 5 : Ajouter des informations aux vues
+- Créer une vue listant mes bateaux sous la forme d'une page avec l'URL /mes-bateaux
+- Cette vue affichera une grille des bateaux avec l'ensemble des informations disponible sur un bateau
+- Ajouter un champ aire aux vues qui calcule l’aire d’un bateau
+- Déclarer ce champs sous la forme d’un plugin
+
+Etape 6 : Déclaration de template
+- Créer un template twig pour la fiche d’un bateau 
+le positionner dans le dossier templates (à créer) de notre module
+- Déclarer ce template à l’aide du hook_theme 
