@@ -30,14 +30,15 @@ rectangulaire, donc le calcul est largeur * longueur)
 stocké en base de donnée
 - Stocker également ce résultat dans la table (non drupal) d'une deuxième base de données
 
-Etape 3 : création d'un formulaire d'import
+Etape 3 : Permission et Envoi d’email à partir des données de l'entité
+- Créer une permission pour accéder au bloc de calcul de l'air (permission statique)
+- Envoyer un email au propriétaire d’un bateau en cas de modification de sa fiche 
+(utilisation du hook form_alter et de l'API des entités)
+
+Etape 4 : création d'un formulaire d'import
 - Créer un formulaire d’import de fichier CSV
 - Créer la route pour ce formulaire
 - Ajouter les contenus bateau à partir du fichier
-
-Etape 4 : Envoi d’email à partir des données de l'entité
-- Envoyer un email au propriétaire d’un bateau en cas de modification de sa fiche 
-(utilisation du hook form_alter et de l'API des entités)
 
 Etape 5 : Ajouter des informations aux vues
 - Créer une vue listant mes bateaux sous la forme d'une page avec l'URL /mes-bateaux
