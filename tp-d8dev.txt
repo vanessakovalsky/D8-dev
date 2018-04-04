@@ -34,6 +34,7 @@ Etape 3 : Permission et Envoi d’email à partir des données de l'entité
 - Créer une permission pour accéder au bloc de calcul de l'air (permission statique)
 - Envoyer un email au propriétaire d’un bateau en cas de modification de sa fiche 
 (utilisation du hook form_alter et de l'API des entités)
+- Ne permettre que au propriétaire du bateau de modifier la fiche du bateau dont il est propriétaire 
 
 Etape 4 : création d'un formulaire d'import
 - Créer un formulaire d’import de fichier CSV
