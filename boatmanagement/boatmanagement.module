@@ -39,8 +39,8 @@ function boatmanagement_theme() {
 }
 
 function boatmanagement_form_alter(&$form, &$form_state, $form_id){
-  if($form_id == 'node_bateau_form'){
-    $form['#submit'][] = 'bateau_edit_send_email';
+  if($form_id == 'node_bateau_edit_form'){
+    $form['actions']['submit']['#submit'][] = 'bateau_edit_send_email';
   }
 }
 
