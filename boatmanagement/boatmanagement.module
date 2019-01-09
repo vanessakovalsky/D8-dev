@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_help().
@@ -45,11 +46,16 @@ function boatmanagement_form_alter(&$form, &$form_state, $form_id){
 }
 
 function bateau_edit_send_email(&$form, &$form_state){
+  //On charge le service d'envoi de mail
   $mailer = \Drupal::service('plugin.manager.mail');
+  // On récupère la langue de l'utilisateur cournat
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  // On récupère le nom du site dans la config pour le mettre dans le sujet du mail
   $site_name = \Drupal::config('system.site')->get('name');
+  //On récupère l'utilisateur actuellement connecté
   $current_user = \Drupal::currentUser();
   $expediteur = $current_user->getEmail();
+  //On construit le tableau avec les paramètres pour l'envoi du mail
   $subject = t('Modification de votre fiche bateau');
   $content = t('Votre fiche de bateau a été modifiée');
   $params = array(
@@ -57,8 +63,10 @@ function bateau_edit_send_email(&$form, &$form_state){
     'subject' => $site_name.$subject,
   );
 
+  //On récupère le noeud por trouver le propriétaire du bateau qui a été modifié
   $node = Node::load($form_state->getValue('nid'));
 
+  //Le champ propriétaire contient une référence vers une entité User, il faut donc la chargé pour récupérer le mail du propriétaire
   /** @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem $referenceItem */
   $referenceItem = $node->get('field_proprietaire')->first();
 
@@ -72,7 +80,7 @@ function bateau_edit_send_email(&$form, &$form_state){
   $proprietaire = $entityAdapter->getValue();
 
   $destinataire = $proprietaire->getEmail();
-
+  //On envoie le mail avec toutes les infos dont on a besoin
   $mailer->mail('boatmanagement', 'bateau_edit_send_email', $destinataire, $langcode, $params, $expediteur, $send=NULL );
 }
 
