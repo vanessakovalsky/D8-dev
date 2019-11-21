@@ -28,7 +28,9 @@ rectangulaire, donc le calcul est largeur * longueur)
 - Créer un formulaire permettant de faire un calcul d'aire et l'afficher dans un bloc qui apparait sur toutes les cases
 - Lors du calcul de l'aire sur une fiche bateau, ajouter la valeur de l'aire dans le contenu
 stocké en base de donnée
-- Stocker également ce résultat dans la table (non drupal) d'une deuxième base de données
+
+
+Optionnel- Stocker également ce résultat dans la table (non drupal) d'une deuxième base de données
 
 Etape 3 : Permission et Envoi d’email à partir des données de l'entité
 - Créer une permission pour accéder au bloc de calcul de l'air (permission statique)
