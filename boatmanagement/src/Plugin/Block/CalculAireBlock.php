@@ -94,5 +94,9 @@ class CalculAireBlock extends BlockBase implements ContainerFactoryPluginInterfa
     //Every new route this block will rebuild
     return Cache::mergeContexts(parent::getCacheContexts(), array('route'));
   }
+	
+  protected function blockAccess(AccountInterface $account) {
+    return AccessResult::allowedIfHasPermission($account, 'administer demo_module_boat configuration');
+  }
 
 }
