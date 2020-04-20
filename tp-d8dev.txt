@@ -23,7 +23,16 @@ Etape 1 : Déclaration d'un module et gestion de la configuration
 - Mettre dans le module dans un dossier config/install l'ensemble des fichiers de configurations
 /!\ Prendre soin d'enlever dans les fichiers YAML les uuid présents générés par l'UI
 
-Etape 2 : Création d'un bloc et travail avec les BDD
+Etape 2 : 
+- Ajouter un hook uninstall dans notre module pour supprimer la config : le code pour supprimer de la config est celui la : 
+  // Using \Drupal::configFactory()
+  \Drupal::configFactory()->getEditable('automated_cron.settings')->delete();
+  // Or \Drupal::service.
+  \Drupal::service('config.factory')->getEditable('automated_cron.settings')->delete();
+- Créer page pour préparer l'affichage d'un webservice de méteo (créer le routing plus le controller) 
+
+
+Etape 3 : Création d'un bloc et travail avec les BDD
 - Créer un bloc custom qui ne s'affichera que sur les contenus de type Bateau
 - Celui-ci contiendra le calcul de l'aire du bateau (en prenant l'hypothèse que le bateau est 
 rectangulaire, donc le calcul est largeur * longueur)
