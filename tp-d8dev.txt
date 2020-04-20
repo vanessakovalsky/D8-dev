@@ -1,6 +1,6 @@
 TP - Drupal 8 Dev
 
-Etape 1 : Déclaration d'un module et gestion de la configuration
+Etape 0 : Création des configuration
 - Créer une taxomie Port d'attachement avec les champs :
 -- Nom du port (text)
 -- Ville (code postal + nom de la ville)
@@ -16,6 +16,8 @@ Etape 1 : Déclaration d'un module et gestion de la configuration
 -- Port d'attachement (taxonomie libre)
 -- Propriétaire (utilisateur)
 - Ajouter aux utilisateurs un champ Nom et un champ prenom (les deux sont des textes)
+
+Etape 1 : Déclaration d'un module et gestion de la configuration
 - Exporter la configuration de ce type de contenu + de la taxonomie + les champs utilisateurs(l'ensemble des fichiers + les champs)
 - Créer un module appeler BoatManagement (vous pouvez utilisez la commande drupal generate:module)
 - Mettre dans le module dans un dossier config/install l'ensemble des fichiers de configurations
