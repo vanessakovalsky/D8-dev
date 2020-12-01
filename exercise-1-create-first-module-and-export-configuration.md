@@ -19,4 +19,9 @@ drupal generate:module
 ## Exporter la configuration 
 * Exporter la configuration du type de contenu + de la taxonomie + les champs utilisateurs(l'ensemble des fichiers + les champs)
 * Mettre dans le module dans un dossier config/install l'ensemble des fichiers de configurations
-/!\ Prendre soin d'enlever dans les fichiers YAML les uuid présents générés par l'UI
+* Utilier la console pour exporter la configuration : 
+```
+vendor/bin/drupal cect
+```
+* Répondre aux questions et générées la config 
+* Après avoir supprimé votre type de contenu Bateau, vous pouvez activez le module que vous avez créé. 
