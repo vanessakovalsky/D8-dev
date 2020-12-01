@@ -43,5 +43,65 @@ https://api.drupal.org/api/drupal/elements/8.9.x
 
 ## Créer des noeuds depuis le fichiers importé
 
+* Dans la fonction submit form, nous récupérons et ouvrons le fichier CSV 
+* Puis nous créons un noeud pour chaque nouvelle ligne
+```
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Display result.
+    $file_id = $form_state->getValue('fichier_csv_import');
+    $file = File::load($file_id[0]);
+    $uri = $file->getFileUri();
+    $line_max = 1000;
+    $handle = @fopen($uri, "r");
+    // start count of imports for this upload
+    $send_counter = 0;
+    while ($row = fgetcsv($handle, $line_max, ',')) {
+      // $row is an array of elements in each row
+      // e.g. if the first column is the email address of the user, try something like
+      $row_data = explode(';', $row[0]);
+      $boat = Node::create([
+        'uid' => 1,
+        'revision' => 0,
+        'status' => TRUE,
+        'promote' => 0,
+        'created' => time(),
+        'langcode' => 'fr',
+        'type' => 'bateau'
+      ]);
+      $boat->setTitle($row_data[0]);
+      $boat->set('field_longueur', $row_data[1]);
+      $boat->set('field_largeur', $row_data[2]);
+      $boat->set('field_hauteur', $row_data[3]);
+      $boat->set('field_prix', $row_data[4]);
+      //On vérifie si le terme de taxonomie existe
+      if(!empty($row_data[5])){
+        $port = $row_data[5];
+        $term = $this->entityManager->getStorage('taxonomy_term')->loadByProperties(['name' => $port]);
+        if(isset($term) && !empty($term)){
+          //On rattache le terme au champs du bateau
+          $port_attache = reset($term);
+        }
+        else {
+          //On cree le terme de taxo
+          $port_attache = Term::create([
+            'name' => $port,
+            'vid' => 'ports',
+          ])->save();
+        }
+        $boat->field_port->target_id = $port_attache->id();
+      }
+      $boat->save();
+    }
+      drupal_set_message('Les bateaux ont été créé');
 
-- Ajouter les contenus bateau à partir du fichier
+  }
+```
+* on vérifie si le terme de taxonomie existe, mais pas le bateau.
+* Mettre à jour le code pour vérifier si le bateau exite et le mettre à jour s'il existe plutôt que de le recréer 
+* Ajouter également la création d'un utilisateur si l'utilisateur propriétaire présent dans le fichier n'existe pas.
+* Utilisez le fichier bateaux_a_importer.csv à la racine du dépôt git pour tester votre formulaire 
+
+-> Félicitation vous savez créer un formulaire et créer des noeuds ou les mettre à jour via l'API des entités.
