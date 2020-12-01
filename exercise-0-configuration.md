@@ -7,6 +7,7 @@ Cet exercice a pour but d'installer Drupal sur votre machine, et de créer la co
 * Avoir un serveur web (apache, nginx, autre) installé et configuré
 * Avoir la version de PHP installée et fonctionnelle correspondant à la version de Drupal que vous souhaitez installé, voir ici : https://www.drupal.org/docs/system-requirements 
 * Avoir une base de données installée et configurée 
+* Installer composer : https://getcomposer.org/download/ 
 
 ## Installation de Drupal
 
@@ -34,3 +35,9 @@ http://localhost/mydir
 * * Port d'attachement (taxonomie libre)
 * * Propriétaire (utilisateur)
 * Ajouter aux utilisateurs un champ Nom et un champ prenom (les deux sont des textes)
+
+## Installation des outils nécessaires :
+* Installer la drupal console : 
+https://drupalconsole.com/docs/fr/getting/composer
+* Installer drush (optionnel):
+https://www.drush.org/install/ 
