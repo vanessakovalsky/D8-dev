@@ -13,7 +13,11 @@ Cet exercice a pour but d'installer Drupal sur votre machine, et de créer la co
 
 * Télécharger Drupal avec composer :
 ```
-composer create-project drupal/recommended-project mydir
+composer create-project drupal/recommended-project:8:9:10 mydir
+```
+* Dans le dossier lancer la commande d'installation pour récupérer l'ensemble des composants du coeur :
+```
+composer install
 ```
 * Ouvrir votre navigateur et se rendre à l'adresse de votre site :
 http://localhost/mydir
