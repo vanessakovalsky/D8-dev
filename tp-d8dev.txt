@@ -2,30 +2,6 @@ TP - Drupal 8 Dev
 
 
 
-Etape 2 : 
-- Ajouter un hook uninstall dans notre module pour supprimer la config : le code pour supprimer de la config est celui la : 
-  // Using \Drupal::configFactory()
-  \Drupal::configFactory()->getEditable('automated_cron.settings')->delete();
-  // Or \Drupal::service.
-  \Drupal::service('config.factory')->getEditable('automated_cron.settings')->delete();
-- Créer page pour préparer l'affichage d'un webservice de méteo (créer le routing plus le controller) 
-
-
-Etape 3 : Création d'un bloc et travail avec les BDD
-- Créer un bloc custom qui ne s'affichera que sur les contenus de type Bateau
-- Celui-ci contiendra le calcul de l'aire du bateau (en prenant l'hypothèse que le bateau est 
-rectangulaire, donc le calcul est largeur * longueur)
-
-Etape 3 : Permission et Envoi d’email à partir des données de l'entité
-- Créer une permission pour accéder au bloc de calcul de l'air (permission statique)
-- Envoyer un email au propriétaire d’un bateau en cas de modification de sa fiche 
-(utilisation du hook form_alter et de l'API des entités)
-- Ne permettre que au propriétaire du bateau de modifier la fiche du bateau dont il est propriétaire 
-
-Etape 4 : création d'un formulaire d'import
-- Créer un formulaire d’import de fichier CSV
-- Créer la route pour ce formulaire
-- Ajouter les contenus bateau à partir du fichier
 
 Etape 5 : Ajouter des informations aux vues
 - Créer une vue listant mes bateaux sous la forme d'une page avec l'URL /mes-bateaux
