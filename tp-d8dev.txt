@@ -1,15 +1,7 @@
 TP - Drupal 8 Dev
 
 
-
-
-Etape 5 : Ajouter des informations aux vues
-- Créer une vue listant mes bateaux sous la forme d'une page avec l'URL /mes-bateaux
-- Cette vue affichera une grille des bateaux avec l'ensemble des informations disponible sur un bateau
-- Ajouter un champ aire aux vues qui calcule l’aire d’un bateau
-- Déclarer ce champs sous la forme d’un plugin
-
-Etape 6 : Déclaration de template
+Etape 7 : Déclaration de template
 - Créer un template twig pour la fiche d’un bateau 
 le positionner dans le dossier templates (à créer) de notre module
 - Déclarer ce template à l’aide du hook_theme 
