@@ -31,7 +31,7 @@ vendor/bin/drupal generate:plugin:block
     return $build;
   }
 ```
-* Afin d'utliser les deux services (request stack permettant d'accèder à la requête et ses paramètres et entityt type manager), nous devons les injecter dans le constructeur de notre plugin block
+* Afin d'utliser les deux services (request_stack permettant d'accèder à la requête et ses paramètres et entity_type.manager), nous devons les injecter dans le constructeur de notre plugin block
  ```php
   /**
    * Drupal\Core\Entity\EntityTypeManagerInterface definition.
