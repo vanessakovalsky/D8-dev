@@ -118,12 +118,11 @@ class ImportBoatForm extends FormBase {
             'vid' => 'ports',
           ])->save();
         }
-        $boat->field_port->target_id = $port_attache->id();
+        $boat->field_port->target_id = $port_attache;
       }
       $boat->save();
     }
-      drupal_set_message('Les bateaux ont été créé');
-
+    \Drupal::messenger()->addMessage(t('Les bateaux ont été créés.'), 'info');
   }
 
 }
