@@ -89,15 +89,23 @@ class ImportBoatForm extends FormBase {
       // $row is an array of elements in each row
       // e.g. if the first column is the email address of the user, try something like
       $row_data = explode(';', $row[0]);
-      $boat = Node::create([
-        'uid' => 1,
-        'revision' => 0,
-        'status' => TRUE,
-        'promote' => 0,
-        'created' => time(),
-        'langcode' => 'fr',
-        'type' => 'bateau'
-      ]);
+      if(isset($row_data[0]) && !empty($row_data[0]) ) {
+        $boat_value = $this->entityManager->getStorage('node')->loadByProperties(['title'=> $row_data[0]]);
+      }
+      if (isset($boat_value) && !empty($boat_value)) {
+          $boat = reset($boat_value);
+      }
+      else {
+        $boat = Node::create([
+          'uid' => 1,
+          'revision' => 0,
+          'status' => true,
+          'promote' => 0,
+          'created' => time(),
+          'langcode' => 'fr',
+          'type' => 'bateau'
+        ]);
+      }
       $boat->setTitle($row_data[0]);
       $boat->set('field_longueur', $row_data[1]);
       $boat->set('field_largeur', $row_data[2]);
