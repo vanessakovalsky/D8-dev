@@ -1,0 +1,4 @@
+administer demo_module_boat configuration:
+  title: 'Administer demo_module_boat configuration'
+  description: 'Optional description.'
+  restrict access: false

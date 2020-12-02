@@ -6,7 +6,7 @@ Cet exercice a pour objectif :
 * de retrouver des données avec l'API des entités 
 
 ## Déclarer une nouvelle permission 
-* A la racine du module créer un fichier appeler monmodule.permission.yaml 
+* A la racine du module créer un fichier appeler monmodule.permissions.yaml 
 * Ce fichier sert à déclarer des permissions statique
 * Ajouter le code suviant dans ce fichier pour déclarer la permission :
 ```
