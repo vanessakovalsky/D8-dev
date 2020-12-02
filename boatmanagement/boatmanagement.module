@@ -94,3 +94,15 @@ function bateau_edit_send_email(&$form, &$form_state){
      array_unshift($suggestions, $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']));
    }
  }
+
+function boatmanagement_views_data_alter(array &$data){
+    $data['node']['nodes_titles'] = array(
+        'title' => t('Node titles boat'),
+        'filter' => array(
+        'title' => t('Node titles'),
+        'help' => t('Specify a list of titles a node can have.'),
+        'field' => 'title',
+        'id' => 'd8views_node_titles'
+        ),
+    );
+}
