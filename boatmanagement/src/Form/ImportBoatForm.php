@@ -2,13 +2,13 @@
 
 namespace Drupal\boatmanagement\Form;
 
-use Drupal\Core\Form\FormBase;
-use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormBase;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Class ImportBoatForm.
  */
@@ -102,15 +102,16 @@ class ImportBoatForm extends FormBase {
           'status' => true,
           'promote' => 0,
           'created' => time(),
-          'langcode' => 'fr',
+          'langcode' => 'en',
           'type' => 'bateau'
         ]);
       }
       $boat->setTitle($row_data[0]);
-      $boat->set('field_longueur', $row_data[1]);
-      $boat->set('field_largeur', $row_data[2]);
-      $boat->set('field_hauteur', $row_data[3]);
-      $boat->set('field_prix', $row_data[4]);
+      $boat->set('field_longueur', [$row_data[1]]);
+      $boat->set('field_largeur', [$row_data[2]]);
+      $boat->set('field_hauteur', [$row_data[3]]);
+      $boat->set('field_prix', [$row_data[4]]);
+
       //On vérifie si le terme de taxonomie existe
       if(!empty($row_data[5])){
         $port = $row_data[5];
@@ -128,6 +129,7 @@ class ImportBoatForm extends FormBase {
         }
         $boat->field_port->target_id = $port_attache;
       }
+
       $boat->save();
     }
     \Drupal::messenger()->addMessage(t('Les bateaux ont été créés.'), 'info');
